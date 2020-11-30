@@ -2,9 +2,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class JUnitTesting_TransactionPage {
+public class JUnitTesting_TransactionPage {
 
-	Transaction transactionPage = new Transaction("A",58,"Ortho");
+	JUnitTesting_TransactionPage()
+	{}
+	
+	Transaction transactionPage = new Transaction("A", 58, "Dental",7 , "Fracture","ICU");
 
 	@Test
 	void TranscationInitialAmtLabelCheck() {

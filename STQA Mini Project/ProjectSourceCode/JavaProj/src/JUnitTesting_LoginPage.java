@@ -2,9 +2,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class JUnitTesting_LoginPage {
+public class JUnitTesting_LoginPage {
 
 	LoginTest loginPage = new LoginTest();
+	
+	JUnitTesting_LoginPage(){
+		
+	}
 	
 	@Test
 	void LoginButtonDisableCheck() {

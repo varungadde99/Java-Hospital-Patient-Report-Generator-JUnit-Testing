@@ -2,9 +2,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class JUnitTesting_AddPatientPage {
+public class JUnitTesting_AddPatientPage {
 
 	AddPatient addPatientPage = new AddPatient();
+	JUnitTesting_AddPatientPage()
+	{}
 	
 	@Test
 	void SpecialityButtonGroupClearCheck() {

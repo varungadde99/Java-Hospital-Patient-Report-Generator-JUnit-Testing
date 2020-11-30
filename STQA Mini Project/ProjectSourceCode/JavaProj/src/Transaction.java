@@ -16,7 +16,10 @@ public class Transaction extends JFrame implements ActionListener {
 	String speciality = "";
 	float amt = 0;
 	int flag = 0;
-
+	int rating =0;
+	String roomCategory="";
+	String treatment = "";
+	
 	String filename = "";
 	String record="";
 
@@ -37,13 +40,15 @@ public class Transaction extends JFrame implements ActionListener {
 	JButton generateBillButton = new JButton("Generate & Save Bill");
 	JButton clearButton = new JButton("Clear");
 
-	Transaction(String pname, int page, String pspeciality) {
+Transaction(String pname, int page, String pspeciality , int rating, String treatment, String roomCategory) {
 
 		this.pname = pname;
 		this.page = page;
 		this.speciality = pspeciality;
+		this.rating = rating;
+		this.roomCategory = roomCategory;
+		this.treatment = treatment;
 		
-
 		setLayoutManager();
 		setLocationAndSize();
 		addComponentsToContainer();
@@ -133,7 +138,7 @@ public class Transaction extends JFrame implements ActionListener {
 				flag = 1;
 				
 				this.record = "Patient Name: " + pname + "\r\n" + "Patient Age: " + page + "\r\n" + "Speciality Treatment: "
-						+ speciality + "\r\n" + "Total Bill Amt: " + amt + "\r\n" + "----------------------------";
+						+ speciality + "\r\n" + "Treatment Category: " + treatment + "\r\n" + "Severitry Rating: " + rating + "\r\n"  + "Room Category: " + roomCategory  + "\r\n" + "Total Bill Amt: " + amt + "\r\n" + "----------------------------";
 				
 				this.filename = pname + "_" + page + ".txt";
 				
@@ -185,7 +190,7 @@ public class Transaction extends JFrame implements ActionListener {
 
 	public static void main(String[] args) {
 		@SuppressWarnings("unused")
-		Transaction add_transaction_frame = new Transaction("A", 58, "Dental");
+		Transaction add_transaction_frame = new Transaction("A", 58, "Dental",7 , "Fracture","ICU");
 
 	}
 

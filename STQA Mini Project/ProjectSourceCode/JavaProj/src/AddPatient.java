@@ -9,7 +9,9 @@ public class AddPatient extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
 	public String record = "";
-
+	String pname = "";
+	String pspeciality = "";
+	
 	public String getRecord() {
 		return this.record;
 
@@ -121,28 +123,53 @@ public class AddPatient extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		
+		
 		if (e.getSource() == addPatientButton) {
-
-			String pname = pnameTextField.getText().trim();
-			int page = 0;
-			String pspeciality = "";
-
+			
 			try {
+				flag = 0;
+				String pname = pnameTextField.getText().trim();
+				int page = 0;
+				
 				page = Integer.parseInt(pageTextField.getText().trim());
+			
+					
+						
+						if(page>0){
+							System.out.println("Accepted Entry");
+						}
+						else
+						{
+							System.out.println("Denied Entry");
+							JOptionPane.showMessageDialog(this, "Check Details! Enter properly.");
+							flag = 1;
+						}
+				
 			}
 
-			catch (NumberFormatException e1) {
-				JOptionPane.showMessageDialog(this, "Check Details! Enter properly.");
-
-			}
+				catch (NumberFormatException e1) {
+					JOptionPane.showMessageDialog(this, "Check Details! Enter properly.");
+					flag = 1;
+				}
+						
+				
+		
 
 			if (rdbtnOrtho.isSelected())
-				pspeciality = "Ortho";
+				{
+					pspeciality = "Ortho";
+					if(flag!=1)	
+					new OrthoCategory(pname, page, pspeciality);
+				}
 			else
-				pspeciality = "Dental";
-
-			new Transaction(pname, page, pspeciality);
+				{
+					pspeciality = "Dental";
+					if(flag!=1)	
+					new DentalCategory(pname, page, pspeciality);
+				}
+			
+			if(flag!=1)	
 			dispose();
 
 		}
